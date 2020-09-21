@@ -1,0 +1,41 @@
+<style>
+</style>
+<div>
+  
+  <mat-card class="example-card">
+    <mat-card-header>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Text</mat-label>
+        <textarea matInput name="text" [formControl]="text"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>SubText</mat-label>
+        <input matInput name="subtext" [formControl]="subText">
+      </mat-form-field>
+      <br>
+    
+      <mat-checkbox [(ngModel)]="caseSensitive">Case Sensitive</mat-checkbox>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="findMatches()">Find Matches</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div *ngIf="results">
+    <h1>Indexes of matches</h1>
+    <ul>
+      <li *ngFor="let item of results; index as i;">{{item}}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="error">
+    <h1>Error</h1>
+    {{error}}
+  </div>
+
+</div>
+
+<!-- <router-outlet></router-outlet> -->
