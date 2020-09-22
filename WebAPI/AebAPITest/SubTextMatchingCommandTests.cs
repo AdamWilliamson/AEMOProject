@@ -57,6 +57,7 @@ namespace AebAPITest
         {
             var command = new SubTextMatchingCommand(null, "match", true);
 
+            // Sad way of testing, because Shouldly was failing me, and I didn't want to waste time on it.
             try
             {
                 await new SubTextMatchingCommandHandler().Handle(command);

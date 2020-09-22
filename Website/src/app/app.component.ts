@@ -1,3 +1,6 @@
+// Ideally I would create a default page, to load in the router.
+// And add my code to that.
+
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -27,6 +30,12 @@ export class AppComponent {
       CaseSensitive: this.caseSensitive
     });
     
+    // This should be wrapped in a service. with the url gained by config file.
+    // You could choose one of either ways:
+    //  Service per controller.
+    // Service per feature.
+    // Service for the entire webapi.
+    // I would choose service per feature.
     this.http.post<any>("https://localhost:44371/SubTextMatching/FindMatches", body, {'headers': headers})
       .subscribe(data => {
         this.error = null;

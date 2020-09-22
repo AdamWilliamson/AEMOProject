@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Commands.SubTextMatchingCommand
 {
+    // Ideally commands and queries would be in a seperate project.
+    // But for a simple thing like this, vertical stripes is more appropriate.
     public class SubTextMatchingCommand
     {
         public SubTextMatchingCommand(string text, string subText, bool caseSensitive)
@@ -23,6 +25,7 @@ namespace WebAPI.Commands.SubTextMatchingCommand
     {
         public Task<SubTextMatchingResponse> Handle(SubTextMatchingCommand command)
         {
+            // deal with case sensitivity.
             var text = (command.CaseSensitive) ? command.Text : command.Text?.ToLower();
             var subText = (command.CaseSensitive) ? command.SubText : command.SubText?.ToLower();
 
